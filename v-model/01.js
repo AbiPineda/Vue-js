@@ -9,14 +9,18 @@ const aplicacion = new Vue({
             {nombre: 'Papas', cantidad: 20},
             {nombre: 'Cebolla', cantidad: 0}
         ], //creamos el array frutas
-    nuevaVerdura: ''
+    nuevaVerdura: '',
+    nuevaCantidad: 0
     },
     methods:{
         agregarVerdura(){
             //llamamos al array de frutas para enviarle la nueva fruta
             this.verduras.push({
-                nombre: this.nuevaVerdura, cantidad:0
-            })
+                nombre: this.nuevaVerdura,
+                cantidad: this.nuevaCantidad
+            });
+            this.nuevaVerdura='';
+            this.nuevaCantidad='';
         }
     }
 

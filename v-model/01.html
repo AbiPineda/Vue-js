@@ -10,7 +10,8 @@
     <div id="app">
         <h1>{{titulo}}</h1>
 
-        <input type="text" v-model="nuevaVerdura">
+        <input type="text" v-model="nuevaVerdura" @keyup.enter="agregarVerdura">
+        <input type="number" v-model="nuevaCantidad" @keyup.enter="agregarVerdura">
         <!--agregando v-model="nuevaVerdura" automaticamente capturas 
         el valor que ingresemos en el input en la variable nuevaVerdura-->
         
