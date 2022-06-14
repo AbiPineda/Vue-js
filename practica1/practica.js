@@ -14,12 +14,26 @@ const aplicacion = new Vue({
                 estado: false
             });
             this.nuevaTarea='';
+            this.local();
         },
         editarTarea(index){
             this.tareas[index].estado = true;
+            this.local();
         },
         eliminarTarea(index){
             this.tareas.splice(index,1);
+            this.local();
+        },
+        local(){
+            localStorage.setItem('gym-vue', JSON.stringify(this.tareas));
+        }
+    },
+    created: function(){
+        let datosDB = JSON.parse(localStorage.getItem('gym-vue'));
+        if(datosDB ===null){
+            this.tareas=[];
+        }else{
+            this.tareas = datosDB;
         }
     }
 });
