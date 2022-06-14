@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+
+        <input type="text" v-model="nuevaVerdura" @keyup.enter="agregarVerdura">
+        <!--agregando v-model="nuevaVerdura" automaticamente capturas 
+        el valor que ingresemos en el input en la variable nuevaVerdura-->
+        
+        <button @click="agregarVerdura">Agregar</button>
+        <!--agregando v-on:click="agregarVerdura" para acceder al metodo que creamos
+        en 01.js llamado agregarVerdura
+        En lugar de: v-on:click="agregarVerdura" podemos tambien usar @click="agregarVerdura"
+        para abreviarlo-->
+        
+        <!--Iteramos el array de objetos de verduras
+        v-model.number pasamos los elementos de string a number-->
+        <ul>
+            <li v-for="verdurita of verduras">
+                <input type="number" v-model.number="verdurita.cantidad">
+                <button @click="verdurita.cantidad++">+</button>
+                {{verdurita.nombre}}
+                <!--Realizamos un if para verificar el stock de las verduras-->
+                <span v-if="verdurita.cantidad === 0"> - Sin Stock</span>
+            </li>
+        </ul>  
+       <h4>TOTAL: {{sumarVerduras}}</h4>
+           
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="01.js"></script>
+</body>
+</html>
