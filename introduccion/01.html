@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <!--Iteramos el array frutas-->
+        <ul>
+            <li v-for="frutita of frutas">{{frutita}}</li>
+        </ul>
+        <!--Iteramos el array de objetos de verduras-->
+        <ul>
+            <li v-for="verdurita of verduras">
+                {{verdurita.cantidad}} - {{verdurita.nombre}}
+                <!--Realizamos un if para verificar el stock de las verduras-->
+                <span v-if="verdurita.cantidad === 0"> - Sin Stock</span>
+            </li>
+        </ul>    
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="01.js"></script>
+</body>
+</html>
