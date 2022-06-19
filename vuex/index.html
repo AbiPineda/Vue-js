@@ -8,7 +8,8 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="vuex.js"></script>
+    <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
+
    <!-- <script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.js"></script>-->
 </head>
 <body>
@@ -56,7 +57,7 @@
         const store = new Vuex.Store({
             state:{
                 numero:10,
-                cursos:[]
+                cursos: []
             },
             mutations:{
                 aumentar(state){
@@ -73,7 +74,7 @@
                 obtenerCursos: async function({commit}){
                     const data = await fetch('cursos.json');
                     const cursos = await data.json();
-                    commit('llenarCursos', cursos);
+                    commit('llenarCursos', cursos)
                 }
             }
         });
@@ -81,7 +82,7 @@
         new Vue({
             el: '#app',
             store: store
-        })
+        });
     </script>
 </body>
 </html>
